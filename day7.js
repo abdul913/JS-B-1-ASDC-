@@ -68,5 +68,36 @@ var arr = ["js",'html',"css"]
 // })
 
 
-var newArr = arr.map((elem)=>elem.toUpperCase())
-console.log(newArr)
+// var newArr = arr.map((elem)=>elem.toUpperCase())
+// console.log(newArr)
+
+// filter
+// reduce
+
+// var arr = [1,2,3,4,5,6,7,8,9]
+// var arr = ['INDIA','FINLAND','ENGLAND']
+// var newArr = arr.filter((elem)=>elem.includes('LAND'))
+// console.log(newArr)
+
+
+// var arr = [1,2,3,4,5,6,7,8,9]
+// .reduce((p,c)=>{},p)
+
+// var newArr = arr.reduce((p,c)=>{
+//     console.log('p', p)
+//     console.log('c', c)
+//     p = p + c
+//     return p
+// },0)
+
+// console.log(newArr)
+
+var arr = [1,2,3,4,5,6,7,8,9]
+var largestVal = arr.reduce((p,c)=>{
+    if(c>p){
+       return p = c
+    }
+   return p
+},10)
+
+console.log(largestVal)

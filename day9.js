@@ -1,7 +1,7 @@
 // var - funtion scope
 // let,const - block scope
 // Lexical Environment
-//DOM
+// DOM
 // 
 // debugger
 // console.log(a)
@@ -54,9 +54,13 @@
 // }
 // }
 // console.log(a) //10
-
-
-var div = document.getElementsByClassName('cls')
-console.log(div)
-let text = "text"
-div.innertext = `<i>${text}</i>`
+// {
+//     name: "clsr",
+//     getfullname: function(){}
+// }
+// person.getfullname()
+// var div = document.getElementsByClassName('cls')
+// console.log(div)
+// let text = "text"
+// div[1].innerHTML = `<i>${text}</i>`
+// div[0].innerHTML = `<i>${text}</i>`

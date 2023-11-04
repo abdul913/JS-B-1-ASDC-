@@ -27,4 +27,22 @@
 // console.log(div)
 // console.log(b)
 
-// let arr = [1,2,3,44,5,6]
+let arr = [
+    {fName:"abc",lName:'xyz'},
+    {fName:"efg",lName:'lmn'},
+    {fName:"abc",lName:'xyz'}
+]
+
+let div = document.querySelector('div')
+// console.log(div)
+let items = arr.map(function(e){
+    let txt = `<h1>${e.fName}</h1>`
+    return txt
+})
+div.innerHTML = items.join('')
+
+// console.log(items)
+
+
+
+

@@ -8,7 +8,7 @@ let div = document.querySelector('div')
 let listVals = []
 
 let titleVal
-let descVal
+let descVal 
 
 
 window.onload = function() {
@@ -39,7 +39,7 @@ btn.addEventListener("click", function (e) {
     let dataLS = JSON.parse(localStorage.getItem('data')) || []
     dataLS.push(objInps)
 
-     localStorage.setItem("data",JSON.stringify(dataLS) )
+    localStorage.setItem("data",JSON.stringify(dataLS) )
     console.log(listVals)
 
     displayItems(dataLS)

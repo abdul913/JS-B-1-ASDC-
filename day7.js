@@ -5,23 +5,17 @@
 //     console.log("b")
 // }
 
-// function higherOrderFun(callBackFun){
-//     callBackFun()
-//     console.log("a")
-//     // .
-//     // .
-//     // .
-//     // .
-    
-// }
+function higherOrderFun(callBackFun){
+   let a = "a"
+    callBackFun(a)
+   //  console.log("a")
+}
 
-
+higherOrderFun(function callBackFun(a){
+   console.log(a)
+})
 
 // higherOrderFun(callBackFun)
-// higherOrderFun(function callBackFun(){
-//     console.log("b")
-// })
-
 // setTimeout(callBackFun,1000)
 
 // setTimeout(function sum(){
@@ -97,7 +91,7 @@ var largestVal = arr.reduce((p,c)=>{
     if(c>p){
        return p = c
     }
-   return p
-},10)
-
-console.log(largestVal)
+    return p
+   },10)
+   
+   console.log(largestVal)

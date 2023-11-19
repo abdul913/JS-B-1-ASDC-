@@ -12,7 +12,10 @@ function apiCall(url, callBack) {
    }
    xhr.onload = function () {
       callBack(xhr.response)
-      //  console.log()
+   }
+
+   xhr.onerror = function(){
+      console.log("err")
    }
 
    xhr.open('GET', url)
@@ -21,7 +24,7 @@ function apiCall(url, callBack) {
 }
 
 btn.addEventListener('click', function () {
-   apiCall('https://dummyjson.com/users', (data) => {
+   apiCall('https://dummyjso.com/users', (data) => {
       // console.log()
       apiCall(`https://dummyjson.com/users/${data.users[1].id}`, (userData) => {
          // console.log(userData.id)

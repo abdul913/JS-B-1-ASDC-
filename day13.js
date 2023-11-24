@@ -36,7 +36,7 @@ desc.addEventListener("keyup", function (e) {
 
 btn.addEventListener("click", function (e) {
     let objInps = { "titleVal": titleVal, "descVal": descVal }
-    let dataLS = JSON.parse(localStorage.getItem('data')) || []
+    let dataLS = JSON.parse(localStorage.getItem('data')) ?? []
     dataLS.push(objInps)
 
     localStorage.setItem("data",JSON.stringify(dataLS) )

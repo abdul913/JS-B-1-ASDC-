@@ -1,8 +1,21 @@
 // Closures
 
+function parent() {
+    let z = 10;
+
+    function y() {
+        console.log(z)
+    }
+    return y
+}
+
+let cally = parent();
+
+
+
 // function x(){
 //     let a = 10;
-    
+
 //     console.log(a)
 //     function y(){
 //     }
@@ -48,7 +61,7 @@
 //             console.log("Executed")
 //             exc = true;
 //         }else{
-    // console.log("co......")
+// console.log("co......")
 // }
 //     }
 //     return callOnce
@@ -111,16 +124,16 @@
 
 
 let obj1 = {
-        fname:"abc",
-        lname:"xyz",
-        age:23,
+    fname: "abc",
+    lname: "xyz",
+    age: 23,
 }
 
-let {fname,...obj2} = obj1
+let { fname, ...obj2 } = obj1
 // console.log(fname)
 
-let arr1 = [1,2,4]
-let [a,,c] = arr1
+let arr1 = [1, 2, 4]
+let [a, , c] = arr1
 // console.log(c)
 
 // Oprtional Chaining(?.)
@@ -128,4 +141,4 @@ let [a,,c] = arr1
 
 console.log(obj2.details?.address) //
 
-console.log("data"??"data not find")
+console.log("data" ?? "data not find")

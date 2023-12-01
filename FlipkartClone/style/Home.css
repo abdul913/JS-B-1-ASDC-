@@ -1,0 +1,152 @@
+nav{
+    position: sticky;
+    top:0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+    will-change: transform;
+    width: 100%;
+    height: 56px;
+    background-color: #2874f0;
+    color: #f0f0f0;
+    z-index: 10;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 0 150px;
+    align-items: center;
+}
+
+.nav-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-right{
+ display: flex;
+ gap:60px;
+
+}
+
+.nav-left{
+     display: flex;
+     gap:40px;
+     align-items: center;
+}
+
+.search-container{
+    min-width: 324px;
+    width: calc(100% - 540px);
+}
+
+.search-container > input{
+    padding: 0 16px;
+    border-radius: 2px 0 0 2px;
+    border: 0;
+    outline: 0 none;
+    font-size: 14px;
+    height: 36px;
+    width: 100%;
+}
+
+.hamburger-menu{
+    display: none;
+}
+
+
+.catg-cont{
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.16);
+    background-color: #fff;
+    min-height: 48px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.items-cont{
+    width: 100%;
+    padding: 20px 6vw;
+    display: flex;
+    gap: 20px;
+}
+
+.filter-cont{
+    width: 20%;
+    height: 450px;
+    padding: 10px 0;
+    background-color: #fff;
+}
+
+.items{
+    width: 80%;
+    background-color: #fff;
+}
+
+.items-card{
+    display: flex;
+    gap: 90px;
+    padding: 40px;
+    height:370px;
+    border-bottom: 1px solid gray;
+
+}
+
+.item-img{
+    width: 150px;
+    height: 300px;
+}
+
+.item-img>img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.item-price{
+    padding-left: 410px;
+}
+
+.shimmer-catg{
+    width: 10%;
+    height: 38px;
+    background-color: rgb(177, 176, 176);
+    border-radius: 4px;
+}
+
+@media  (max-width: 600px) {
+    nav{
+        padding: 2vw 5vw;
+    height: auto;
+    align-items: flex-start;
+}
+    .nav-container{
+        flex-direction: column;
+        align-items: baseline;
+    }
+
+    .nav-right{
+        display: none;
+        padding: 21px 0px;
+        gap: 20px;
+        flex-direction: column;
+    }
+    
+    #show-menu-items{
+        display: flex;
+    }
+
+    .search-container{
+        min-width: 324px;
+    }
+
+    .hamburger-menu{
+        display: block;
+        font-size: xx-large;
+    }
+}

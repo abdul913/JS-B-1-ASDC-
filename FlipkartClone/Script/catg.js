@@ -1,9 +1,18 @@
 let searchUrl = new URLSearchParams(window.location.search)
 
-console.log(searchUrl.get('id'))
+let idCatg = searchUrl.get('id')
 
+async function fetchDataCatgs() {
+    let fetData = await fetch(`https://dummyjson.com/products/category/${idCatg}`)
+    let res = await fetData.json()
+    return res
+}
 
-// console.log("object")
+async function fetchData() {
+    let fetData = await fetch('https://dummyjson.com/products')
+    let res = await fetData.json()
+    return res
+}
 
 let menuItems = document.querySelector('.nav-right')
 let hamburgerMenu = document.querySelector('.hamburger-menu')
@@ -23,11 +32,7 @@ hamburgerMenu.addEventListener('click', function () {
     }
 })
 
-async function fetchData() {
-    let fetData = await fetch(`https://dummyjson.com/products/category/${id}`)
-    let res = await fetData.json()
-    return res
-}
+
 
 let catgContainer = document.querySelector('.catg-cont')
 let card = document.querySelector('.items')
@@ -37,8 +42,11 @@ window.onload = async function () {
     let data = await fetchData()
     let products = data.products
 
+    let dataCatgs = await fetchDataCatgs()
+    let productCags = dataCatgs.products
+
     uniqCatgs(products)
-    displayItems(products)
+    displayCtgsProd(productCags)
 }
 
 function uniqCatgs(products) {
@@ -59,7 +67,7 @@ function uniqCatgs(products) {
 }
 
 
-function displayItems(products) {
+function displayCtgsProd(products) {
     // console.log(products[0])
     let items = products.map((item) => {
         let elemItem = `<div class="items-card">
@@ -83,23 +91,3 @@ function displayItems(products) {
     card.innerHTML = items.join('')
 }
 
-function dispCatg(id) {
-    console.log(id)
-    window.location.href = `catg.html?id:${id}`
-}
-
-let searchInp = document.querySelector('#search')
-searchInp.addEventListener('keyup', async function (e) {
-    // console.log(e)
-    let inputVal = e.target.value
-    let data = await fetchData()
-    let products = data.products
-
-    // console.log(title)
-    let searchData = products.filter(function (e) {
-        let title = e.title.toLowerCase()
-        return title.includes(inputVal)
-    })
-    console.log(searchData)
-    displayItems(searchData)
-})

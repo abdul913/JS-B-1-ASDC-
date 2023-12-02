@@ -57,7 +57,10 @@ function uniqCatgs(products) {
 function displayItems(products) {
     // console.log(products[0])
     let items = products.map((item) => {
-        let elemItem = `<div class="items-card">
+        console.log(item.id)
+        let elemItem = `
+        <a href="prodDetail.html?id=${item.id}">
+        <div class="items-card">
         <div class="item-img">
             <img src="${item.thumbnail
             }"
@@ -72,16 +75,14 @@ function displayItems(products) {
         </div>
         <div class="item-price">${item.price}</div>
         
-    </div>`
+    </div>
+    </a>`
         return elemItem
     })
     card.innerHTML = items.join('')
 }
 
-function dispCatg(id) {
-    console.log(id)
-    window.location.href = `catg.html?id:${id}`
-}
+
 
 let searchInp = document.querySelector('#search')
 searchInp.addEventListener('keyup', async function (e) {
@@ -98,3 +99,8 @@ searchInp.addEventListener('keyup', async function (e) {
     console.log(searchData)
     displayItems(searchData)
 })
+
+function dispCatg(id) {
+    console.log(id)
+    window.location.href = `catg.html?id=${id}`
+}

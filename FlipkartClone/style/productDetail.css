@@ -1,0 +1,43 @@
+.prodDetails-cont{
+    background-color: rgb(255, 255, 255);
+    padding: 16px;
+    max-width: 1366px;
+    height: 800px;
+    min-width: 1128px;
+    margin: auto;
+    display: flex;
+    position: relative;
+    margin-top: 1px;
+}
+
+.image-cont{
+    position: fixed;
+    top: 121px;
+    width: 35%;
+}
+
+.detail-cont{
+    position: relative;
+    width: 60%;
+    left: 40%;
+}
+
+
+.image-cont{
+    display: flex;
+    gap: 10px;
+}
+
+.sub-imgs{
+    display: flex;
+    flex-direction: column
+}
+
+.single-sub-img{
+    width: 80px;
+    height: 80px;
+}
+.single-Main-img{
+    height: 283px;
+    width: 408px;
+}

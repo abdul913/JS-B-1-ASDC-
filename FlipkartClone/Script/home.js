@@ -34,6 +34,8 @@ window.onload = async function () {
 
     uniqCatgs(products)
     displayItems(products)
+    displayProdRatingAboveFourToPointFive(products)
+    displayProdRatingAboveFourPointFive(products)
 }
 
 function uniqCatgs(products) {
@@ -103,4 +105,39 @@ searchInp.addEventListener('keyup', async function (e) {
 function dispCatg(id) {
     console.log(id)
     window.location.href = `catg.html?id=${id}`
+}
+
+
+let checkboxRating4 = document.getElementById('above4')
+let checkboxRating5 = document.getElementById('above3')
+function displayProdRatingAboveFourToPointFive(products) {
+    checkboxRating4.addEventListener('click', function () {
+        if (checkboxRating4.checked === true) {
+            checkboxRating5.checked = false
+            let sortedProducts = products.filter(product => {
+                return product.rating >= 4 && product.rating <= 4.5
+            })
+            displayItems(sortedProducts)
+            console.log(sortedProducts)
+        } else {
+            displayItems(products)
+        }
+    })
+
+}
+
+function displayProdRatingAboveFourPointFive(products) {
+    checkboxRating5.addEventListener('click', function () {
+        if (checkboxRating5.checked === true) {
+            checkboxRating4.checked = false
+            let sortedProducts = products.filter(product => {
+                return product.rating >= 4.5 && product.rating <= 5
+            })
+            displayItems(sortedProducts)
+            console.log(sortedProducts)
+        } else {
+            displayItems(products)
+        }
+    })
+
 }

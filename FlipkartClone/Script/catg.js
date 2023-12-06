@@ -47,6 +47,10 @@ window.onload = async function () {
 
     uniqCatgs(products)
     displayCtgsProd(productCags)
+    displayBrands(productCags)
+
+    displayProdRatingAboveFourToPointFive(productCags)
+    displayProdRatingAboveFourPointFive(productCags)
 }
 
 function uniqCatgs(products) {
@@ -91,3 +95,96 @@ function displayCtgsProd(products) {
     card.innerHTML = items.join('')
 }
 
+
+function displayBrands(products) {
+    console.log(products)
+    let brands = products.map((prod) => {
+        return prod.brand
+    })
+    // console.log(brands)
+    let uniqBrands = brands.filter((prod, index) => {
+        return brands.indexOf(prod) === index
+    })
+    // console.log(uniqBrands)
+    let sortBrandCont = document.querySelector('.sort-brand')
+    let dispBrandName = uniqBrands.map(brand => {
+        let elem = `<div>
+        <input type="checkbox" name="brand" id="${brand}-brand">
+        <label for="${brand}-brand">${brand}</label>
+    </div>`
+        return elem
+    })
+    sortBrandCont.innerHTML = dispBrandName.join('')
+    let checkboxs = document.getElementsByName('brand')
+    // console.log(checkboxs)
+    let collSortedProd = []
+    checkboxs.forEach(function (checkbox) {
+        // console.log(checkbox)
+        // console.log(checkbox.checked)
+        checkbox.addEventListener('click', function () {
+            // console.log(checkbox.checked)
+            if (checkbox.checked === true) {
+                // console.log(checkbox.id.split('-')[0])
+                let brandName = checkbox.id.split('-')[0].toLowerCase()
+                let sortedProducts = products.filter(product => {
+                    return product.brand.toLowerCase() === brandName
+                })
+                collSortedProd.push(...sortedProducts)
+                displayCtgsProd(collSortedProd)
+            }
+            // else {
+            //     console.log("object")
+            //     let brandName = checkbox.id.split('-')[0].toLowerCase()
+            //     let sortedProducts = products.filter(product => {
+            //         return !product.brand.toLowerCase() === brandName
+            //     })
+            //     console.log(sortedProducts)
+            //     collSortedProd.push(...sortedProducts)
+            //     displayCtgsProd(collSortedProd)
+            // }
+
+            console.log("collSortedProd", collSortedProd)
+
+            // if (collSortedProd.length == 0) {
+            //     displayCtgsProd(products)
+            // }
+
+        })
+    })
+
+}
+
+
+let checkboxRating4 = document.getElementById('above4')
+let checkboxRating5 = document.getElementById('above3')
+function displayProdRatingAboveFourToPointFive(products) {
+    checkboxRating4.addEventListener('click', function () {
+        if (checkboxRating4.checked === true) {
+            checkboxRating5.checked = false
+            let sortedProducts = products.filter(product => {
+                return product.rating >= 4 && product.rating <= 4.5
+            })
+            displayCtgsProd(sortedProducts)
+            console.log(sortedProducts)
+        } else {
+            displayCtgsProd(products)
+        }
+    })
+
+}
+
+function displayProdRatingAboveFourPointFive(products) {
+    checkboxRating5.addEventListener('click', function () {
+        if (checkboxRating5.checked === true) {
+            checkboxRating4.checked = false
+            let sortedProducts = products.filter(product => {
+                return product.rating >= 4.5 && product.rating <= 5
+            })
+            displayCtgsProd(sortedProducts)
+            console.log(sortedProducts)
+        } else {
+            displayCtgsProd(products)
+        }
+    })
+
+}
